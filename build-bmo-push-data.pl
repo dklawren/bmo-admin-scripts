@@ -22,12 +22,12 @@ use autodie;
 # 8. edit the RecentChanges wiki (add today's push to the top, delete the oldest)
 # 9. edit the relevant month's wiki page (add today's push to the top)
 
-use lib '/opt/bz';
+use lib "/home/bugzilla/bugzilla-dev-manager";
 use Bz;
 use DateTime;
 use IPC::System::Simple qw(runx capture);
 
-chdir('/opt/bugzilla/repo/bmo/master');
+chdir('/home/bugzilla/devel/repos/gitmo/bmo/master');
 info("updating repo");
 runx(qw(git pull));
 
@@ -102,7 +102,8 @@ my $last_revision  = $revisions[$#revisions]->{hash};
 # push bug
 
 print "\n";
-print "https://bugzilla.mozilla.org/enter_bug.cgi?product=bugzilla.mozilla.org&component=Infrastructure&short_desc=push+updated+bugzilla.mozilla.org+live\n";
+print "https://bugzilla.mozilla.org/enter_bug.cgi?product=bugzilla.mozilla.org&component=Infrastructure&short_desc=push+updated+bugzilla.mozilla.org+live&version=Production\n";
+print "can we please get a bmo production push.\n";
 print "revisions: $first_revision - $last_revision\n";
 foreach my $revision (@revisions) {
     print "bug $revision->{bug_id} : $revision->{summary}\n";
