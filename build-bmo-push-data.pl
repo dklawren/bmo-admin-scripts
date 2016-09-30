@@ -27,7 +27,7 @@ use Bz;
 use DateTime;
 use IPC::System::Simple qw(runx capture);
 
-chdir('/home/bugzilla/devel/repos/gitmo/bmo/master');
+chdir('/home/bugzilla/devel/repos/github/mozilla/bmo/master');
 info("updating repo");
 runx(qw(git pull));
 
